@@ -1,3 +1,6 @@
+import { businesses } from "@/data/businesses";
+import BusinessCard from "@/components/BusinessCard";
+
 export default function Home() {
   return (
     <main className="flex-1">
@@ -31,7 +34,12 @@ export default function Home() {
         <p className="mt-4 max-w-2xl text-lg text-slate-600">
           A growing portfolio of products built under the Nx Conglo banner.
         </p>
-        <p className="mt-12 text-slate-500">App cards coming in CP4.</p>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {businesses.map((business) => (
+            <BusinessCard key={business.id} business={business} />
+          ))}
+        </div>
       </section>
     </main>
   );
