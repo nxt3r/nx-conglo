@@ -50,7 +50,7 @@ export default async function BusinessPage({
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   return (
-    <main className="flex-1">
+    <div>
       <div className="mx-auto max-w-4xl px-6 pt-10">
         <Link
           href="/#businesses"
@@ -120,6 +120,6 @@ export default async function BusinessPage({
           </div>
         )}
       </section>
-    </main>
+    </div>
   );
 }

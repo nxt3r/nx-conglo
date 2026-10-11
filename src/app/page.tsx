@@ -4,7 +4,7 @@ import BusinessCard from "@/components/BusinessCard";
 
 export default function Home() {
   return (
-    <main className="flex-1">
+    <>
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
         <p className="mb-4 text-sm font-medium uppercase tracking-widest text-slate-500">
@@ -49,7 +49,26 @@ export default function Home() {
           ))}
         </div>
       </section>
-    </main>
+
+      {/* About */}
+      <section
+        id="about"
+        className="border-t border-slate-200 bg-slate-50 scroll-mt-20"
+      >
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            About Nx Conglo
+          </h2>
+          <p className="mt-4 max-w-2xl text-lg text-slate-600">
+            Nx Conglo is a solo-built studio founded in {site.founded}. We
+            design and ship web apps in public — currently one live product
+            and one in beta, with more on the way. Everything lives under one
+            roof so you can see what we&apos;re building, testing, and
+            launching.
+          </p>
+        </div>
+      </section>
+    </>
   );
 }
 
