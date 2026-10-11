@@ -1,45 +1,44 @@
+export type BusinessStatus = "live" | "beta" | "coming-soon";
+
 export type Business = {
   id: string;
   name: string;
   tagline: string;
   description: string;
-  logo: string;
-  status: "live" | "beta" | "coming-soon";
+  logo: string; // path relative to /public, e.g. "/logos/career-os.png"
+  status: BusinessStatus;
   url?: string;
   tags: string[];
+  year: number;
 };
 
 export const businesses: Business[] = [
   {
-    id: "app-one",
-    name: "App One",
-    tagline: "Short punchy tagline",
+    id: "career-os",
+    name: "Career OS",
+    tagline: "The OS that tracks all your activities",
     description:
-      "One or two sentences describing what this product does and who it's for.",
-    logo: "/logos/app-one.svg",
+      "The operating system for ambitious individuals: one place to plan goals, build skills, manage projects, track time, and review progress with measurable data.",
+    logo: "/logos/career-os.png",
     status: "live",
-    url: "https://example.com",
-    tags: ["Web", "SaaS"],
+    url: "https://nxt3r.github.io/Career-OS-Build",
+    tags: ["Web", "Productivity"],
+    year: 2026,
   },
   {
-    id: "app-two",
-    name: "App Two",
-    tagline: "Another sharp tagline",
+    id: "fixtional",
+    name: "Fixtional",
+    tagline: "Fixing the digital mess",
     description:
-      "Description of the second product in the Nx Conglo portfolio.",
-    logo: "/logos/app-two.svg",
+      "Fixtional is a digital support service focused on helping people troubleshoot technical problems, clean up software issues, and get their devices working properly — without unnecessary complexity or expensive support.",
+    logo: "/logos/fixtional.png",
     status: "beta",
-    url: "https://example.com",
-    tags: ["Mobile"],
-  },
-  {
-    id: "app-three",
-    name: "App Three",
-    tagline: "Coming soon",
-    description:
-      "A product currently in development under the Nx Conglo umbrella.",
-    logo: "/logos/app-three.svg",
-    status: "coming-soon",
-    tags: ["AI"],
+    url: "https://nxt3r.github.io/Fixtional",
+    tags: ["Web", "Support"],
+    year: 2026,
   },
 ];
+
+export function getBusiness(id: string): Business | undefined {
+  return businesses.find((b) => b.id === id);
+}
