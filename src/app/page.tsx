@@ -2,6 +2,7 @@ import { businesses } from "@/data/businesses";
 import { site } from "@/data/site";
 import BusinessCard from "@/components/BusinessCard";
 import type { Metadata } from "next";
+import BrandMark from "@/components/BrandMark";
 
 export const metadata: Metadata = {
   title: `${site.name} — ${site.tagline}`,
@@ -13,20 +14,21 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="mx-auto max-w-6xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
-        <p className="mb-4 text-sm font-medium uppercase tracking-widest text-slate-500">
-          {site.name} · Est. {site.founded}
-        </p>
-        <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl">
-          {site.tagline}
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-slate-600 sm:text-xl">
-          Nx Conglo is an independent studio building web apps and digital
-          services in public. Everything we ship lives here — one place to
-          see what we&apos;re working on, what&apos;s live, and what&apos;s next.
-        </p>
-      </section>
+{/* Hero */}
+<section className="mx-auto max-w-6xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
+  <BrandMark size={64} className="mb-6" />
+  <p className="mb-4 text-sm font-medium uppercase tracking-widest text-slate-500">
+    {site.name} · Est. {site.founded}
+  </p>
+  <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl">
+    {site.tagline}
+  </h1>
+  <p className="mt-6 max-w-2xl text-lg text-slate-600 sm:text-xl">
+    Nx Conglo is an independent studio building web apps and digital
+    services in public. Everything we ship lives here — one place to
+    see what we&apos;re working on, what&apos;s live, and what&apos;s next.
+  </p>
+</section>
 
       {/* Stats */}
       <section className="border-y border-slate-200 bg-slate-50">

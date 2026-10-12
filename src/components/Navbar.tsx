@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AnchorLink from "@/components/AnchorLink";
+import BrandMark from "@/components/BrandMark";
 
 export default function Navbar() {
   return (
@@ -7,9 +8,10 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="text-base font-semibold tracking-tight text-slate-900 transition hover:text-slate-600"
+          className="flex items-center gap-2.5 text-base font-semibold tracking-tight text-slate-900 transition hover:opacity-80"
         >
-          Nx Conglo
+          <BrandMark size={28} />
+          <span>Nx Conglo</span>
         </Link>
 
         <div className="flex items-center gap-6 text-sm font-medium text-slate-600">

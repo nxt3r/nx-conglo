@@ -1,13 +1,16 @@
-import Link from "next/link";
 import { site } from "@/data/site";
 import AnchorLink from "@/components/AnchorLink";
+import BrandMark from "@/components/BrandMark";
 
 export default function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
         <div className="text-sm text-slate-600">
-          <div className="font-medium text-slate-900">{site.name}</div>
+          <div className="flex items-center gap-2 font-medium text-slate-900">
+            <BrandMark size={20} />
+            <span>{site.name}</span>
+          </div>
           <div className="mt-1">
             © {site.founded}–{new Date().getFullYear()} {site.name}. All rights
             reserved.
