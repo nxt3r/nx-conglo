@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nx Conglo
 
-## Getting Started
+> An independent studio building web apps and digital services in public.
 
-First, run the development server:
+**Live:** [nxt3r.github.io/nx-conglo](https://nxt3r.github.io/nx-conglo/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What is this?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The homepage and portfolio site for **Nx Conglo** — a solo-built studio shipping web apps under one roof. It lists every product we've launched, links to each one, and gives a single place to see what's live, what's in beta, and what's next.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Currently:
 
-## Learn More
+| Product | Status | Link |
+|---|---|---|
+| **Career OS** | 🟢 Live | [nxt3r.github.io/Career-OS-Build](https://nxt3r.github.io/Career-OS-Build) |
+| **Fixtional** | 🟡 Beta | [nxt3r.github.io/Fixtional](https://nxt3r.github.io/Fixtional) |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **[Next.js 16](https://nextjs.org/)** — App Router, static export
+- **[Tailwind CSS 4](https://tailwindcss.com/)** — utility-first styling
+- **[Turbopack](https://turbo.build/pack)** — dev bundler
+- **TypeScript** — strict mode
+- **GitHub Pages** — hosting via GitHub Actions
+- **Zero runtime dependencies** — pure static HTML/CSS/JS output
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## How it works
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The whole site is a **static export** (`output: "export"` in `next.config.ts`) served from GitHub Pages. No server, no edge functions, no runtime. Just files.
+
+**basePath handling:** Because GitHub Pages serves this repo at `nxt3r.github.io/nx-conglo/` (not the domain root), all routes and assets use the `/nx-conglo` prefix in production. This is set conditionally in `next.config.ts`:
+
+```ts
+const isProd = process.env.NODE_ENV === "production";
+const basePath = isProd ? "/nx-conglo" : "";
