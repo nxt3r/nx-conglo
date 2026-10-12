@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/data/site";
+import AnchorLink from "@/components/AnchorLink";
 
 export default function Footer() {
   return (
@@ -14,12 +15,20 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-600">
-          <Link href="/#businesses" className="hover:text-slate-900">
+          <AnchorLink
+            href="/#businesses"
+            hash="#businesses"
+            className="hover:text-slate-900"
+          >
             Businesses
-          </Link>
-          <Link href="/#about" className="hover:text-slate-900">
+          </AnchorLink>
+          <AnchorLink
+            href="/#about"
+            hash="#about"
+            className="hover:text-slate-900"
+          >
             About
-          </Link>
+          </AnchorLink>
           <a
             href="https://github.com/nxt3r"
             target="_blank"

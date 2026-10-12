@@ -19,10 +19,32 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const business = getBusiness(id);
-  if (!business) return { title: "Not found · Nx Conglo" };
+  if (!business) return { title: "Not found" };
+
+  const url = `/businesses/${business.id}`;
+
   return {
-    title: `${business.name} · Nx Conglo`,
+    title: business.name, // template renders "Career OS · Nx Conglo"
     description: business.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title: `${business.name} — ${business.tagline}`,
+      description: business.description,
+      url,
+      images: [
+        {
+          url: business.logo, // logo becomes the OG image
+          alt: `${business.name} logo`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${business.name} — ${business.tagline}`,
+      description: business.description,
+      images: [business.logo],
+    },
   };
 }
 

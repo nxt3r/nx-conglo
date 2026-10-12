@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnchorLink from "@/components/AnchorLink";
 
 export default function Navbar() {
   return (
@@ -12,18 +13,20 @@ export default function Navbar() {
         </Link>
 
         <div className="flex items-center gap-6 text-sm font-medium text-slate-600">
-          <Link
+          <AnchorLink
             href="/#businesses"
+            hash="#businesses"
             className="transition hover:text-slate-900"
           >
             Businesses
-          </Link>
-          <Link
+          </AnchorLink>
+          <AnchorLink
             href="/#about"
+            hash="#about"
             className="transition hover:text-slate-900"
           >
             About
-          </Link>
+          </AnchorLink>
         </div>
       </nav>
     </header>

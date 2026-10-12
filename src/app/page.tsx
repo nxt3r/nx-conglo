@@ -1,6 +1,14 @@
 import { businesses } from "@/data/businesses";
 import { site } from "@/data/site";
 import BusinessCard from "@/components/BusinessCard";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `${site.name} — ${site.tagline}`,
+  description:
+    "Nx Conglo is an independent studio building web apps and digital services in public. Currently shipping Career OS (live) and Fixtional (beta).",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
