@@ -1,18 +1,18 @@
-export type BusinessStatus = "live" | "beta" | "coming-soon";
+export type VentureStatus = "live" | "coming-soon";
 
-export type Business = {
+export type Venture = {
   id: string;
   name: string;
   tagline: string;
   description: string;
   logo: string; // path relative to /public, e.g. "/logos/career-os.png"
-  status: BusinessStatus;
+  status: VentureStatus;
   url?: string;
   tags: string[];
   year: number;
 };
 
-export const businesses: Business[] = [
+export const ventures: Venture[] = [
   {
     id: "career-os",
     name: "Career OS",
@@ -32,13 +32,13 @@ export const businesses: Business[] = [
     description:
       "Fixtional is a digital support service focused on helping people troubleshoot technical problems, clean up software issues, and get their devices working properly — without unnecessary complexity or expensive support.",
     logo: "/logos/fixtional.png",
-    status: "beta",
+    status: "coming-soon",
     url: "https://nxt3r.github.io/Fixtional",
     tags: ["Web", "Support"],
     year: 2026,
   },
 ];
 
-export function getBusiness(id: string): Business | undefined {
-  return businesses.find((b) => b.id === id);
+export function getVenture(id: string): Venture | undefined {
+  return ventures.find((v) => v.id === id);
 }

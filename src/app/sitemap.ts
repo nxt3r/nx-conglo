@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { businesses } from "@/data/businesses";
+import { ventures } from "@/data/ventures";
 import { SITE_URL } from "@/lib/site-url";
 
 export const dynamic = "force-static";
@@ -16,12 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const businessRoutes: MetadataRoute.Sitemap = businesses.map((b) => ({
-    url: `${SITE_URL}/businesses/${b.id}/`,
+  const ventureRoutes: MetadataRoute.Sitemap = ventures.map((v) => ({
+    url: `${SITE_URL}/ventures/${v.id}/`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...businessRoutes];
+  return [...staticRoutes, ...ventureRoutes];
 }

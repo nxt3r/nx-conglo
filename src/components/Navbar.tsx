@@ -16,11 +16,11 @@ export default function Navbar() {
 
         <div className="flex items-center gap-6 text-sm font-medium text-slate-600">
           <AnchorLink
-            href="/#businesses"
-            hash="#businesses"
+            href="/#ventures"
+            hash="#ventures"
             className="transition hover:text-slate-900"
           >
-            Businesses
+            Ventures
           </AnchorLink>
           <AnchorLink
             href="/#about"

@@ -19,11 +19,11 @@ export default function Footer() {
 
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-600">
           <AnchorLink
-            href="/#businesses"
-            hash="#businesses"
+            href="/#ventures"
+            hash="#ventures"
             className="hover:text-slate-900"
           >
-            Businesses
+            Ventures
           </AnchorLink>
           <AnchorLink
             href="/#about"

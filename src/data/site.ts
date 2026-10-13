@@ -3,9 +3,9 @@ export const site = {
   tagline: "Building businesses that matter.",
   founded: 2026,
   stats: {
-    businesses: 0,
+    ventures: 0,
     countries: 1,
-    appsLive: 1,
-    appsBeta: 1,
+    live: 1,
+    comingSoon: 1,
   },
 } as const;
