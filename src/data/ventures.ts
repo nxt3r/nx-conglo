@@ -16,13 +16,13 @@ export const ventures: Venture[] = [
   {
     id: "career-os",
     name: "Career OS",
-    tagline: "The OS that tracks all your activities",
+    tagline: "OS that tracks all your activities",
     description:
       "The operating system for ambitious individuals: one place to plan goals, build skills, manage projects, track time, and review progress with measurable data.",
     logo: "/logos/career-os.png",
     status: "live",
-    url: "https://nxt3r.github.io/Career-OS-Build",
-    tags: ["Web", "Productivity"],
+    url: "https://nxt3r.github.io/Career-OS",
+    tags: ["Web", "Productivity", "Pomodoro"],
     year: 2026,
   },
   {
@@ -34,8 +34,8 @@ export const ventures: Venture[] = [
     logo: "/logos/fixtional.png",
     status: "coming-soon",
     url: "https://nxt3r.github.io/Fixtional",
-    tags: ["Web", "Support"],
-    year: 2026,
+    tags: ["Web", "Support", "Consultation"],
+    year: 2025,
   },
 ];
 
