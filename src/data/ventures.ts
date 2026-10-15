@@ -32,10 +32,22 @@ export const ventures: Venture[] = [
     description:
       "Fixtional is a digital support service focused on helping people troubleshoot technical problems, clean up software issues, and get their devices working properly — without unnecessary complexity or expensive support.",
     logo: "/logos/fixtional.png",
-    status: "coming-soon",
+    status: "live",
     url: "https://nxt3r.github.io/Fixtional",
     tags: ["Web", "Support", "Consultation"],
     year: 2025,
+  },
+    {
+    id: "nportx",
+    name: "NportX",
+    tagline: "Managing your network ports with ease",
+    description:
+      "NportX is a digital service focused on helping people manage their network ports efficiently, troubleshoot connectivity issues, and optimize their network performance — without unnecessary complexity or expensive support.",
+    logo: "/logos/nportx.png",
+    status: "coming-soon",
+    url: "https://github.com/nxt3r/NportX",
+    tags: ["Utility", "Network", "Management"],
+    year: 2026,
   },
 ];
 

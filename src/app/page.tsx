@@ -30,16 +30,15 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Stats */}
-      <section className="border-y border-slate-200 bg-slate-50">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-3 lg:grid-cols-5">
-          <Stat value={String(site.stats.ventures)} label="Ventures" />
-          <Stat value={String(site.stats.countries)} label="Country" />
-          <Stat value={String(site.stats.live)} label="Live" />
-          <Stat value={String(site.stats.comingSoon)} label="Coming Soon" />
-          <Stat value={String(site.founded)} label="Founded" />
-        </div>
-      </section>
+{/* Stats */}
+<section className="border-y border-slate-200 bg-slate-50">
+  <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4">
+    <Stat value={String(site.stats.ventures)} label="Ventures" />
+    <Stat value={String(site.stats.countries)} label="Country" />
+    <Stat value={String(site.stats.comingSoon)} label="Coming Soon" />
+    <Stat value={String(site.founded)} label="Founded" />
+  </div>
+</section>
 
       {/* Ventures */}
       <section
