@@ -40,13 +40,13 @@ export const ventures: Venture[] = [
     {
     id: "nportx",
     name: "NportX",
-    tagline: "Managing your network ports with ease",
+    tagline: "Find and kill processes hogging your ports. Instantly. Cross-platform. Single binary.",
     description:
-      "NportX is a digital service focused on helping people manage their network ports efficiently, troubleshoot connectivity issues, and optimize their network performance — without unnecessary complexity or expensive support.",
+      "NportX is a fast, cross-platform CLI that shows you exactly what's running on every port — and lets you kill it in one command. The problem is universal: 'Port 3000 is already in use.' Every developer hits it. The standard fixes (lsof, netstat, taskkill) are platform-specific, ugly, and slow to type. NportX is different. It's a single Rust binary with no runtime dependencies — no Python, no Node, no Docker. Runs the same on macOS, Linux, and Windows. Startup is instant. Output is clean and color-coded so you can spot your own dev servers at a glance. It ships with a safety guard that refuses to kill critical system processes, and every kill requires confirmation. It's fast, but it's not reckless.",
     logo: "/logos/nportx.png",
-    status: "coming-soon",
+    status: "live",
     url: "https://github.com/nxt3r/NportX",
-    tags: ["Utility", "Network", "Management"],
+    tags: ["CLI", "Port", "Developer Tool"],
     year: 2026,
   },
 ];
