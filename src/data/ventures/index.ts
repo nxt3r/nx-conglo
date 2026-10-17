@@ -1,0 +1,32 @@
+import { careerOs } from "./career-os";
+import { fixtional } from "./fixtional";
+import { nportx } from "./nportx";
+
+export type VentureStatus = "live" | "coming-soon";
+
+export type Venture = {
+  id: string;
+  name: string;
+  tagline: string;
+  /** Short description — used for SEO and if needed as a subtitle */
+  description: string;
+  /** Long-form content for the detail page */
+  content: Array<
+    | { type: "paragraph"; text: string }
+    | { type: "heading"; text: string }
+    | { type: "list"; items: string[] }
+  >;
+  logo: string;
+  status: VentureStatus;
+  url?: string;
+  tags: string[];
+  year: number;
+};
+
+// The master array used by the Homepage and Sitemap
+export const ventures: Venture[] = [careerOs, fixtional, nportx];
+
+// Helper for the [id] route
+export function getVenture(id: string): Venture | undefined {
+  return ventures.find((v) => v.id === id);
+}
