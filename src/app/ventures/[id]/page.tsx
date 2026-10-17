@@ -22,12 +22,42 @@ export function generateStaticParams(): Params[] {
   return ventures.map((v) => ({ id: v.id }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
   const { id } = await params;
   const venture = getVenture(id);
-  if (!venture) return { title: "Not found" };
   
-  // ... (keep the rest as is, using venture.description for SEO)
+  // Add the "return {}" on the next line here:
+  if (!venture) return {};
+
+  const url = `/ventures/${venture.id}`;
+
+  return {
+    title: venture.name,
+    description: venture.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title: `${venture.name} — ${venture.tagline}`,
+      description: venture.description,
+      url,
+      images: [
+        {
+          url: venture.logo,
+          alt: `${venture.name} logo`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${venture.name} — ${venture.tagline}`,
+      description: venture.description,
+      images: [venture.logo],
+    },
+  };
 }
 
 export default async function VenturePage({
