@@ -156,18 +156,29 @@ content: [
     type: "paragraph",
     text: "The long-term direction is straightforward: a reliable, lightweight, cross-platform tool that helps developers spend less time untangling port conflicts and more time doing the work those ports were needed for."
   },
-  {
+    {
     type: "heading",
     text: "Project links"
   },
   {
-    type: "list",
-    items: [
-      "GitHub repository: https://github.com/nxt3r/nportx",
-      "Scoop bucket: https://github.com/nxt3r/scoop-nportx",
-      "Releases: available through the project's GitHub Releases page.",
-      "Crates.io: published as nportx."
-    ]
+    type: "link",
+    text: "GitHub Repository",
+    url: "https://github.com/nxt3r/nportx"
+  },
+  {
+    type: "link",
+    text: "Scoop Bucket",
+    url: "https://github.com/nxt3r/scoop-nportx"
+  },
+  {
+    type: "link",
+    text: "Crates.io Package",
+    url: "https://crates.io/crates/nportx"
+  },
+  {
+    type: "link",
+    text: "GitHub Releases",
+    url: "https://github.com/nxt3r/nportx/releases"
   }
-]
+ ]
 };

@@ -4,6 +4,12 @@ import { nportx } from "./nportx";
 
 export type VentureStatus = "live" | "coming-soon";
 
+export type ContentBlock = 
+  | { type: "paragraph"; text: string }
+  | { type: "heading"; text: string }
+  | { type: "list"; items: string[] }
+  | { type: "link"; text: string; url: string };
+
 export type Venture = {
   id: string;
   name: string;
@@ -11,11 +17,7 @@ export type Venture = {
   /** Short description — used for SEO and if needed as a subtitle */
   description: string;
   /** Long-form content for the detail page */
-  content: Array<
-    | { type: "paragraph"; text: string }
-    | { type: "heading"; text: string }
-    | { type: "list"; items: string[] }
-  >;
+  content: ContentBlock[];
   logo: string;
   status: VentureStatus;
   url?: string;

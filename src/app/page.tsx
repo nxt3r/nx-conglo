@@ -2,12 +2,13 @@ import { ventures } from "@/data/ventures";
 import { site } from "@/data/site";
 import VentureCard from "@/components/VentureCard";
 import BrandMark from "@/components/BrandMark";
+import ContentRenderer from "@/components/ContentRenderer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: { absolute: `${site.name} — ${site.tagline}` },
   description:
-    "Nx Conglo is an independent studio building web apps and digital services in public. Currently shipping Career OS (live) and Fixtional (coming soon).",
+    "Nx Conglo is an independent studio building web apps and digital services in public. Currently shipping three live ventures.",
   alternates: { canonical: "/" },
 };
 
@@ -30,15 +31,15 @@ export default function Home() {
         </p>
       </section>
 
-{/* Stats */}
-<section className="border-y border-slate-200 bg-slate-50">
-  <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4">
-    <Stat value={String(site.stats.ventures)} label="Ventures" />
-    <Stat value={String(site.stats.countries)} label="Country" />
-    <Stat value={String(site.stats.comingSoon)} label="Coming Soon" />
-    <Stat value={String(site.founded)} label="Founded" />
-  </div>
-</section>
+      {/* Stats */}
+      <section className="border-y border-slate-200 bg-slate-50">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4">
+          <Stat value={String(site.stats.ventures)} label="Ventures" />
+          <Stat value={String(site.stats.countries)} label="Country" />
+          <Stat value={String(site.stats.comingSoon)} label="Coming Soon" />
+          <Stat value={String(site.founded)} label="Founded" />
+        </div>
+      </section>
 
       {/* Ventures */}
       <section
@@ -64,17 +65,25 @@ export default function Home() {
         id="about"
         className="border-t border-slate-200 bg-slate-50 scroll-mt-20"
       >
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            About Nx Conglo
-          </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600">
-            Nx Conglo is a solo-built studio founded in {site.founded}. We
-            design and ship web apps in public — currently one live venture
-            and one coming soon, with more on the way. Everything lives under
-            one roof so you can see what we&apos;re building, testing, and
-            launching.
-          </p>
+        <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
+          <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
+            
+            {/* Sticky Sidebar */}
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                About Nx Conglo
+              </h2>
+              <p className="mt-6 text-lg text-slate-600">
+                The organization behind the ventures.
+              </p>
+            </div>
+
+            {/* Scrolling Content */}
+            <div>
+              <ContentRenderer blocks={site.about} layout="sidebar" />
+            </div>
+
+          </div>
         </div>
       </section>
     </>
