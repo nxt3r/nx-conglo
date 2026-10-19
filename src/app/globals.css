@@ -4,7 +4,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -23,10 +22,53 @@ html {
   --font-mono: var(--font-geist-mono);
 }
 
-/* Dark mode auto-switch disabled — design is light-only for now. */
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   NX INTRO ANIMATION (Simple Fade & Slide)
+   ========================================= */
+
+@keyframes reveal-left {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-right {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Left side starts immediately */
+.nx-part-left {
+  animation: reveal-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Right side waits 0.6s for the left side to be mostly visible */
+.nx-part-right {
+  opacity: 0;
+  animation: reveal-right 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nx-part-left, .nx-part-right {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }

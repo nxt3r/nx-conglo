@@ -10,7 +10,7 @@ export const site = {
     comingSoon: 0,
   },
   
-  // NEW: Rich content for the About section
+  //Rich content for the About section
   
   about: ([
   {

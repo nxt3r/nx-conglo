@@ -13,7 +13,6 @@ export default function AnchorLink({ hash, href, children, ...rest }: Props) {
       const el = document.querySelector(hash);
       el?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    // Otherwise, let Next.js handle it normally (navigates home + scrolls).
   }
 
   return (

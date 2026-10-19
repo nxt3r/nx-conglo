@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SITE_URL } from "@/lib/site-url";
 import { site } from "@/data/site";
+import IntroGate from "@/components/IntroGate";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -59,11 +60,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="flex min-h-screen flex-col bg-white text-slate-900 antialiased">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <IntroGate>
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </IntroGate>
       </body>
     </html>
   );

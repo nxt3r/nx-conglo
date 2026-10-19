@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 type Props = {
-  /** Height of the rendered mark in pixels. Width is derived from the asset's aspect ratio. */
   size?: number;
   className?: string;
 };

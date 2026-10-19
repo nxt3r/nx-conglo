@@ -44,7 +44,6 @@ export default function ContentRenderer({
             );
 
           case "list":
-            // If it's the sidebar layout, render as a beautiful 2x2 grid
             if (isSidebar) {
               return (
                 <div key={i} className="my-10 grid gap-4 sm:grid-cols-2">
