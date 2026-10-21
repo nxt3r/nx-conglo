@@ -2,7 +2,7 @@ import type { ContentBlock } from "@/data/ventures";
 
 export const site = {
   name: "Nx Conglo",
-  tagline: "Building businesses that matter.",
+  tagline: "Building businesses that matter",
   founded: 2026,
   stats: {
     ventures: 3, 
@@ -15,7 +15,7 @@ export const site = {
   about: ([
   {
     type: "paragraph",
-    text: "Nx Conglo (NxC) is a venture company built around a simple principle: meaningful ideas deserve the opportunity to become something real. We create and develop ventures across different fields, bringing distinct ideas under one organization without limiting what those ideas can be or where they can lead."
+    text: "Nx Conglo (NxC) is a conglomerate built around a simple principle: meaningful ideas deserve the opportunity to become something real. We create and develop ventures across different fields, bringing distinct ideas under one organization without limiting what those ideas can be or where they can lead."
   },
   {
     type: "paragraph",
@@ -93,3 +93,30 @@ export const site = {
 ] as ContentBlock[]),
 }
 
+export const contactInfo = {
+  email: "nxconglo@gmail.com",
+};
+
+export const socialLinks = [
+  {
+    name: "GitHub (NxT3R)",
+    url: "https://github.com/nxt3r",
+    icon: "github",
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/nxconglo/",
+    icon: "instagram",
+  },
+  // Foundation for the future 
+  // {
+  //   name: "Twitter",
+  //   url: "https://twitter.com/nxconglo",
+  //   icon: "twitter",
+  // },
+  // {
+  //   name: "YouTube",
+  //   url: "https://youtube.com/@nxconglo",
+  //   icon: "youtube",
+  // },
+];

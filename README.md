@@ -1,14 +1,9 @@
 # Nx Conglo
 
-> An independent studio building web apps and digital services in public.
+> An independent organization developing products, projects, and businesses across industries.
 
 **Live site:** [nxt3r.github.io/nx-conglo](https://nxt3r.github.io/nx-conglo/)
 
-Nx Conglo is a solo-built studio bringing independent digital products together under one roof.
-
-## Products
-
--Check the live site
 
 ## Tech Stack
 

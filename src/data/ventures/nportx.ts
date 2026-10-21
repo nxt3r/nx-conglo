@@ -10,7 +10,8 @@ export const nportx: Venture = {
   url: "https://github.com/nxt3r/nportx",
   tags: ["CLI", "Port", "Developer Tools", "Cross Platform", "Rust"],
   year: 2026,
-content: [
+content: 
+[
   {
     type: "heading",
     text: "A smaller tool for a frustrating problem"
@@ -41,7 +42,7 @@ content: [
   },
   {
     type: "paragraph",
-    text: "The released v0.1.0 binary is approximately 896 KB. The small footprint is a practical design choice, not a claim that size alone makes a tool better. The important part is that developers can access the functionality without taking on an unnecessary setup burden."
+    text: "The released v0.3.0 binary is approximately 1320 KB. The small footprint is a practical design choice, not a claim that size alone makes a tool better. The important part is that developers can access the functionality without taking on an unnecessary setup burden."
   },
   {
     type: "heading",
@@ -49,21 +50,23 @@ content: [
   },
   {
     type: "paragraph",
-    text: "The first release provides five commands for inspecting and managing listening TCP ports:"
+    text: "NportX provides a set of commands for inspecting and managing listening TCP ports, alongside an interactive terminal interface:"
   },
   {
     type: "list",
     items: [
-      "list — displays listening TCP ports alongside the associated process name, process ID (PID), and memory information, with color distinctions for system and user processes.",
+      "list — displays listening TCP ports alongside the associated process name, process ID (PID), and memory information, with color distinctions for system and user processes. Docker-backed ports display the actual container name.",
       "who <port> — identifies the process and PID associated with a specified port.",
-      "kill <port> — attempts to terminate the process occupying a port, after asking for confirmation.",
+      "kill <port> — attempts to terminate the process occupying a port, after asking for confirmation. The -f or --force option skips the confirmation prompt for automated workflows.",
       "check <port> — checks whether a port is free and returns an exit code that scripts can use: 0 when free and 1 when occupied.",
-      "watch — provides a live view of listening ports, with a configurable refresh interval through the -i option."
+      "watch — provides an interactive, live view of listening ports, with keyboard navigation, search, manual refresh, and process termination. The refresh interval is configurable through the -i option.",
+      "doctor — inspects project files such as .env and package.json to identify expected ports and cross-check them against ports currently in use.",
+      "completions — generates shell completion scripts for Bash, Zsh, Fish, and PowerShell."
     ]
   },
   {
     type: "paragraph",
-    text: "Together, these commands cover the core workflow: inspect the current situation, identify what is occupying a port, check availability before starting a service, monitor changes, and terminate a conflicting process when appropriate. The check command also makes NportX useful beyond interactive terminal sessions, where a simple exit code can be incorporated into shell scripts."
+    text: "Together, these commands cover the core workflow: inspect the current situation, identify what is occupying a port, check availability before starting a service, monitor changes, and terminate a conflicting process when appropriate. Project-aware detection adds context by comparing expected ports with actual listeners, while shell completions make commands easier to enter. The check command also makes NportX useful beyond interactive terminal sessions, where a simple exit code can be incorporated into shell scripts."
   },
   {
     type: "heading",
@@ -75,11 +78,11 @@ content: [
   },
   {
     type: "paragraph",
-    text: "The current Windows implementation filters out sockets that are not in the listening state and deduplicates ports that may otherwise appear multiple times because of interface-specific socket entries. It also skips PID 0 and processes whose identity is reported as unknown, avoiding misleading or unusable process entries."
+    text: "NportX filters out sockets that are not in the listening state and deduplicates ports that may otherwise appear multiple times because of interface-specific socket entries. It also skips unusable process entries, distinguishes system and user processes, and recognizes Docker-backed ports so developers can identify the container behind a port instead of seeing only an intermediary process."
   },
   {
     type: "paragraph",
-    text: "The kill command requires explicit confirmation before proceeding. In addition, a critical-process guard blocks attempts to terminate protected Windows processes, including processes such as System, lsass.exe, and svchost.exe. These protections are intended to make the command more deliberate and reduce the risk of an avoidable mistake."
+    text: "The kill command requires explicit confirmation before proceeding by default. The optional force flag allows the prompt to be skipped when automation requires it. In addition, a critical-process guard blocks attempts to terminate protected processes, including processes such as System, lsass.exe, and csrss.exe. These protections are intended to make the command more deliberate and reduce the risk of an avoidable mistake."
   },
   {
     type: "paragraph",
@@ -91,15 +94,15 @@ content: [
   },
   {
     type: "paragraph",
-    text: "NportX was also a practical way to learn Rust beyond isolated examples. Rather than treating the language as a separate learning exercise, the project used a concrete developer problem to explore CLI design, process information, operating-system networking data, error handling, and release packaging in a working application."
+    text: "NportX was also a practical way to learn Rust beyond isolated examples. Rather than treating the language as a separate learning exercise, the project used a concrete developer problem to explore CLI design, process information, operating-system networking data, error handling, terminal interfaces, and release packaging in a working application."
   },
   {
     type: "paragraph",
-    text: "The implementation uses clap for command-line argument parsing, netstat2 for socket information, sysinfo for process details, colored for terminal output, and anyhow for error handling. Each library supports a specific part of the tool, while the application brings them together behind a consistent command interface."
+    text: "The implementation uses clap for command-line argument parsing, netstat2 for socket information, sysinfo for process details, colored for terminal output, and anyhow for error handling. The interactive terminal interface builds on ratatui and crossterm. Each library supports a specific part of the tool, while the application brings them together behind a consistent command interface."
   },
   {
     type: "paragraph",
-    text: "The result is more than a proof of concept or a collection of commands. NportX has a versioned release, a public repository, and installation routes that make it available to other developers. Building it provided a way to learn the language while working through the practical decisions involved in shipping a usable utility."
+    text: "The result is more than a proof of concept or a collection of commands. NportX has versioned releases, a public repository, and multiple installation routes that make it available to other developers. Building it provided a way to learn the language while working through the practical decisions involved in shipping a usable utility."
   },
   {
     type: "heading",
@@ -107,15 +110,15 @@ content: [
   },
   {
     type: "paragraph",
-    text: "NportX v0.1.0 has been published through GitHub Releases, Crates.io, and Scoop. The public repository contains the project, while the dedicated Scoop bucket provides a convenient installation route for Windows users."
+    text: "NportX v0.3.0 has been published through GitHub Releases, Crates.io, Homebrew and Scoop. A one-line installation script is also available for macOS and Linux. The dedicated Scoop bucket provides a convenient installation route for Windows users, while Homebrew supports macOS installation."
   },
   {
     type: "paragraph",
-    text: "The current release has been verified on Windows. Although cross-platform support is part of the project's direction, macOS and Linux prebuilt release support remains work to be completed. NportX should therefore be understood as a working Windows release with a broader platform goal, not as a finished cross-platform product."
+    text: "NportX now supports Windows, macOS, and Linux through prebuilt releases, with Intel and ARM architectures supported where available. The project has expanded beyond its original Windows implementation while retaining its focus on a lightweight executable and a consistent command interface."
   },
   {
     type: "paragraph",
-    text: "The project is continuing beyond its initial release. The next stage is about extending the existing foundation carefully: broadening platform support, improving the interaction model, and adding capabilities where they meaningfully reduce friction for developers."
+    text: "The project is continuing beyond its initial release. The next stage is about extending the existing foundation carefully: improving project awareness, expanding integrations, and adding capabilities where they meaningfully reduce friction for developers."
   },
   {
     type: "heading",
@@ -123,17 +126,19 @@ content: [
   },
   {
     type: "paragraph",
-    text: "The roadmap focuses on two connected areas: making NportX available across more environments and making common port-management workflows more efficient."
+    text: "The roadmap focuses on extending NportX's existing port-management workflow with better project awareness, additional output options, and broader system integration."
   },
   {
     type: "list",
     items: [
-      "Cross-platform releases — build and publish prebuilt releases for macOS and Linux alongside Windows.",
-      "Interactive terminal interface — explore a TUI built with ratatui and crossterm, with a navigable port table, refresh controls, search, and keyboard-driven actions.",
-      "Shell completions — add completion support for Bash, Zsh, Fish, and PowerShell.",
-      "Expanded process controls — introduce an optional force-kill workflow while preserving deliberate process-management behavior.",
-      "Project-aware port detection — explore using project files such as .env and package.json to make port conflicts easier to understand in context.",
-      "Homebrew distribution — add a more convenient installation route for macOS users."
+      "Expanded project detection — extend nportx doctor to inspect docker-compose.yml files and identify expected ports across multi-container applications.",
+      "Process-wide termination — introduce nportx kill --all to terminate listening-port processes matching a specified process name.",
+      "Structured exports — add nportx export for outputting port information as JSON or CSV for dashboards, reporting, and logging.",
+      "Free-port discovery — introduce a command to find an available port starting from a specified number.",
+      "UDP support — extend port inspection beyond TCP sockets with an optional --udp flag.",
+      "Native Linux packages — explore apt and dnf distribution for Debian/Ubuntu and Fedora.",
+      "Windows package distribution — pursue availability through the official Windows Package Manager using winget.",
+      "VS Code integration — explore an extension that uses nportx doctor in the background and warns about port conflicts before development servers start."
     ]
   },
   {
@@ -150,13 +155,13 @@ content: [
   },
   {
     type: "paragraph",
-    text: "By bringing port inspection, process identification, availability checks, monitoring, and guarded termination into one lightweight CLI, NportX aims to remove one of those interruptions. Its first release establishes the core workflow; continued development will determine how well that experience can extend across platforms and more complex development setups."
+    text: "By bringing port inspection, process identification, availability checks, monitoring, project-aware detection, and guarded termination into one lightweight CLI, NportX aims to remove one of those interruptions. Its interactive terminal interface makes the same workflow easier to navigate, while Docker awareness helps developers understand port conflicts in containerized environments."
   },
   {
     type: "paragraph",
     text: "The long-term direction is straightforward: a reliable, lightweight, cross-platform tool that helps developers spend less time untangling port conflicts and more time doing the work those ports were needed for."
   },
-    {
+  {
     type: "heading",
     text: "Project links"
   },
@@ -172,6 +177,11 @@ content: [
   },
   {
     type: "link",
+    text: "Homebrew",
+    url: "https://github.com/nxt3r/homebrew-nportx"
+  },
+  {
+    type: "link",
     text: "Crates.io Package",
     url: "https://crates.io/crates/nportx"
   },
@@ -180,5 +190,5 @@ content: [
     text: "GitHub Releases",
     url: "https://github.com/nxt3r/nportx/releases"
   }
- ]
+] as const
 };

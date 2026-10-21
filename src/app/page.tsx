@@ -25,9 +25,8 @@ export default function Home() {
           {site.tagline}
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-slate-600 sm:text-xl">
-          Nx Conglo is an independent studio building web apps and digital
-          services in public. Everything we ship lives here — one place to
-          see what we&apos;re working on, what&apos;s live, and what&apos;s next.
+        Nx Conglo is an independent organization developing products, projects, and businesses across industries.
+        Each has its own identity, with the freedom to grow in its own direction.
         </p>
       </section>
 
@@ -74,7 +73,7 @@ export default function Home() {
                 About Nx Conglo
               </h2>
               <p className="mt-6 text-lg text-slate-600">
-                The organization behind the ventures.
+                The Umbrella behind the ventures.
               </p>
             </div>
 
