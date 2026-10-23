@@ -15,23 +15,23 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="mx-auto max-w-6xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
+      {/* Hero - Forced to text-left and items-start */}
+      <section className="mx-auto w-full max-w-6xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24 flex flex-col items-start text-left">
         <BrandMark size={64} className="mb-6" />
         <p className="mb-4 text-sm font-medium uppercase tracking-widest text-slate-500">
           {site.name} · Est. {site.founded}
         </p>
-        <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl">
+        <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl text-left w-full">
           {site.tagline}
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-slate-600 sm:text-xl">
-        Nx Conglo is an independent organization developing products, projects, and businesses across industries.
-        Each has its own identity, with the freedom to grow in its own direction.
+        <p className="mt-6 max-w-2xl text-lg text-slate-600 sm:text-xl text-left">
+          Nx Conglo is an independent organization developing products, projects, and businesses across industries.
+          Each has its own identity, with the freedom to grow in its own direction.
         </p>
       </section>
 
-      {/* Stats */}
-      <section className="border-y border-slate-200 bg-slate-50">
+      {/* Stats - Kept your max-w-6xl */}
+      <section className="border-y border-slate-200 bg-slate-50 w-full">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-4">
           <Stat value={String(site.stats.ventures)} label="Ventures" />
           <Stat value={String(site.stats.countries)} label="Country" />
@@ -43,7 +43,7 @@ export default function Home() {
       {/* Ventures */}
       <section
         id="ventures"
-        className="mx-auto max-w-6xl scroll-mt-20 px-6 py-20"
+        className="mx-auto max-w-6xl scroll-mt-20 px-6 py-20 w-full"
       >
         <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           Our Ventures
@@ -59,10 +59,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
+      {/* About - Restored exactly to your screenshot layout */}
       <section
         id="about"
-        className="border-t border-slate-200 bg-slate-50 scroll-mt-20"
+        className="border-t border-slate-200 bg-slate-50 scroll-mt-20 w-full"
       >
         <div className="mx-auto max-w-6xl px-6 py-20 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">

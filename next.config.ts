@@ -21,6 +21,7 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  adapterPath: require.resolve("./build/adapter.js"),
 };
 
 export default nextConfig;

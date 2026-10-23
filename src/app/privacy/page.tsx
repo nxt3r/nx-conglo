@@ -1,4 +1,5 @@
 import { contactInfo } from "@/data/site";
+import Link from "next/link";
 
 export default function PrivacyPolicy() {
   return (
@@ -26,6 +27,16 @@ export default function PrivacyPolicy() {
           <h2 className="text-xl font-semibold text-slate-900 mb-3">4. Contact Us</h2>
           <p>If you have any questions about this Privacy Policy, please contact us at <a href={`mailto:${contactInfo.email}`} className="text-slate-900 underline underline-offset-4">{contactInfo.email}</a>.</p>
         </section>
+      </div>
+
+      <div className="mt-16 pt-8 border-t border-gray-200">
+        <Link
+          href="/"
+          prefetch={false}
+          className="inline-flex items-center rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-800"
+          >
+          ← Back to Nx Conglo
+        </Link>
       </div>
     </div>
   );

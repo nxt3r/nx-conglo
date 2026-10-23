@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import BrandMark from "@/components/BrandMark";
 import { contactInfo, socialLinks } from "@/data/site";
 
@@ -48,13 +51,22 @@ function SocialIcon({ icon }: { icon: string }) {
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="border-t border-gray-200 bg-gray-50 pt-16 pb-8">
+    <footer className="border-t border-gray-200 bg-white">
       <div className="mx-auto max-w-7xl px-8">
         
-        {/* Top Section: Grid (Brand, Contact, Social) */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-          
+        {/* Top Section with Scroll Animation */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 py-16"
+        >
           {/* Column 1: Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-4">
@@ -70,10 +82,10 @@ export default function Footer() {
 
           {/* Column 2: Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Contact</h3>
+            <h3 className="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wider">Contact</h3>
             <ul className="space-y-3">
               <li>
-                <a href={`mailto:${contactInfo.email}`} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                <a href={`mailto:${contactInfo.email}`} className="text-sm text-gray-500 hover:text-slate-900 transition-colors">
                   {contactInfo.email}
                 </a>
               </li>
@@ -82,44 +94,64 @@ export default function Footer() {
 
           {/* Column 3: Socials */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">Social</h3>
-            <ul className="space-y-3">
+            <h3 className="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wider">Follow us</h3>
+            <ul className="flex items-center gap-4"> 
               {socialLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                    aria-label={link.name}
+                    className="text-gray-500 hover:text-slate-900 transition-colors"
                   >
                     <SocialIcon icon={link.icon} />
-                    <span>{link.name}</span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
+        </motion.div>
 
-        </div>
+      </div>
 
-        {/* Bottom Section: Legal & Copyright Bar */}
-        <div className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+      {/* Bottom Section: Dark Bar */}
+      <div className="bg-black text-gray-300 py-4">
+        <div className="mx-auto max-w-7xl px-8 flex flex-col md:flex-row justify-between items-center gap-4">
           
-          {/* Changed to gray-500 */}
-          <p className="text-sm text-gray-500">
-            © 2026–{currentYear} Nx Conglo. All rights reserved.
+          <p className="text-sm">
+            Copyright © 2026–{currentYear} Nx Conglo. All Rights Reserved.
           </p>
-          
-          {/* Hover changed to slate-900 to match the brand */}
-          <div className="flex items-center gap-6 text-sm text-gray-500">
-            <Link href="/privacy" className="hover:text-slate-900 transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-slate-900 transition-colors">
-              Terms of Service
-            </Link>
-          </div>
 
+          {/* Right Side: Links + Button */}
+          <div className="flex items-center w-full md:w-auto justify-between md:justify-end gap-6">
+            
+            <div className="flex items-center gap-4 text-sm">
+              <Link href="/manifesto" prefetch={false} className="hover:text-white transition-colors">
+                Manifesto
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link href="/privacy" className="hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link href="/terms" className="hover:text-white transition-colors">
+                Terms of Service
+              </Link>
+            </div>
+
+            {/* Back to Top Button - Now pushed to the edge */}
+            <button 
+              onClick={scrollToTop}
+              className="ml-2 flex h-8 w-8 items-center justify-center bg-[#000000] text-gray-300 transition-colors hover:bg-[#808080] hover:text-white rounded"
+              aria-label="Back to top"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg>
+            </button>
+
+          </div>
         </div>
       </div>
     </footer>

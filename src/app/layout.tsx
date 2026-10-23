@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import { SITE_URL } from "@/lib/site-url";
 import { site } from "@/data/site";
 import IntroGate from "@/components/IntroGate";
+import ScrollHandler from "@/components/ScrollHandler";
+import CommandMenu from "@/components/CommandMenu";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -17,53 +19,32 @@ export const metadata: Metadata = {
   applicationName: site.name,
   authors: [{ name: "nxt3r", url: "https://github.com/nxt3r" }],
   creator: "nxt3r",
-  keywords: [
-    "Nx Conglo",
-    "nxt3r",
-    "web apps",
-    "digital studio",
-    "Career OS",
-    "Fixtional",
-  ],
+  keywords: ["Nx Conglo", "nxt3r", "web apps", "digital studio", "Career OS", "Fixtional"],
   openGraph: {
     type: "website",
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
-    description:
-      "An independent studio building web apps and digital services in public.",
+    description: "An independent studio building web apps and digital services in public.",
     url: SITE_URL,
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: `${site.name} — ${site.tagline}`,
-      },
-    ],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: `${site.name} — ${site.tagline}` }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.tagline}`,
-    description:
-      "An independent studio building web apps and digital services in public.",
+    description: "An independent studio building web apps and digital services in public.",
     images: ["/og.png"],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning className="bg-white">
         <IntroGate>
           <div className="flex min-h-screen flex-col">
+            <ScrollHandler />
+            <CommandMenu /> 
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
