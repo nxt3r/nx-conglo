@@ -84,6 +84,12 @@ export default function CommandMenu() {
                     About
                   </Command.Item>
                   <Command.Item
+                    onSelect={() => runCommand(() => router.push("/careers"))}
+                    className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 text-sm text-slate-700 dark:text-slate-300 aria-selected:bg-slate-100 dark:aria-selected:bg-zinc-800 aria-selected:text-slate-900 dark:aria-selected:text-white"
+                  >
+                    Careers
+                  </Command.Item>
+                  <Command.Item
                     onSelect={() => runCommand(() => router.push("/manifesto"))}
                     className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 text-sm text-slate-700 aria-selected:bg-slate-100 aria-selected:text-slate-900"
                   >

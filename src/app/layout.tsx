@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,6 +7,7 @@ import { site } from "@/data/site";
 import IntroGate from "@/components/IntroGate";
 import ScrollHandler from "@/components/ScrollHandler";
 import CommandMenu from "@/components/CommandMenu";
+import Newsletter from "@/components/Newsletter";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -14,10 +15,6 @@ export const metadata: Metadata = {
     default: `${site.name} — ${site.tagline}`,
     template: `%s · ${site.name}`,
   },
-    themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-  ],
   description:
     "Nx Conglo is an independent studio building web apps and digital services in public.",
   applicationName: site.name,
@@ -39,6 +36,13 @@ export const metadata: Metadata = {
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -71,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <CommandMenu /> 
             <Navbar />
             <main className="flex-1">{children}</main>
+            <Newsletter />
             <Footer />
           </div>
         </IntroGate>

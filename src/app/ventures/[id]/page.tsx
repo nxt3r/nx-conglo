@@ -34,13 +34,13 @@ export async function generateMetadata({
       title: `${venture.name} — ${venture.tagline}`,
       description: venture.description,
       url,
-      images: [{ url: venture.logo, alt: `${venture.name} logo` }],
+      images: [{ url: `${url}/opengraph-image.png`, alt: `${venture.name} logo` }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${venture.name} — ${venture.tagline}`,
       description: venture.description,
-      images: [venture.logo],
+      images: [`${url}/opengraph-image.png`],
     },
   };
 }

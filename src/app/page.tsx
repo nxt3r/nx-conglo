@@ -4,6 +4,7 @@ import VentureCard from "@/components/VentureCard";
 import BrandMark from "@/components/BrandMark";
 import ContentRenderer from "@/components/ContentRenderer";
 import type { Metadata } from "next";
+import BentoGrid from "@/components/BentoGrid";
 
 export const metadata: Metadata = {
   title: { absolute: `${site.name} — ${site.tagline}` },
@@ -30,6 +31,9 @@ export default function Home() {
           Each has its own identity, with the freedom to grow in its own direction.
         </p>
       </section>
+
+      {/* NEW BENTO GRID */}
+      <BentoGrid />
 
       {/* Stats */}
       <section className="border-y border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 w-full transition-colors duration-300">
