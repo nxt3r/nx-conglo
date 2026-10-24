@@ -46,8 +46,8 @@ export async function generateMetadata({
 }
 
 const statusStyles: Record<string, string> = {
-  live: "bg-emerald-100 text-emerald-800",
-  "coming-soon": "bg-slate-200 text-slate-700",
+  live: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400",
+  "coming-soon": "bg-slate-200 text-slate-700 dark:bg-zinc-800 dark:text-slate-300",
 };
 
 const statusLabels: Record<string, string> = {
@@ -67,12 +67,12 @@ export default async function VenturePage({
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   return (
-    <div>
+    <div className="bg-white dark:bg-black transition-colors duration-300 min-h-screen">
       <div className="mx-auto max-w-4xl px-6 pt-10">
         <Link
           href="/#ventures"
           scroll={false}
-          className="inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-slate-900"
+          className="inline-flex items-center gap-1 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-300"
         >
           <span aria-hidden>←</span> Back to ventures
         </Link>
@@ -91,7 +91,7 @@ export default async function VenturePage({
           {venture.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
+              className="rounded-md bg-slate-100 dark:bg-zinc-800 px-2.5 py-1 text-xs font-medium text-slate-600 dark:text-slate-300 transition-colors duration-300"
             >
               {tag}
             </span>
@@ -99,12 +99,12 @@ export default async function VenturePage({
         </div>
 
         {venture.url && (
-          <div className="mt-12 border-t border-slate-200 pt-8">
+          <div className="mt-12 border-t border-slate-200 dark:border-zinc-800 pt-8 transition-colors duration-300">
             <a
               href={venture.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-base font-semibold text-white transition hover:bg-slate-700"
+              className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-base font-semibold text-white transition hover:bg-slate-700 dark:bg-white dark:text-black dark:hover:bg-slate-200"
             >
               Visit {venture.name}
               <span aria-hidden>↗</span>

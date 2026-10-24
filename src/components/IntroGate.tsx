@@ -29,7 +29,10 @@ export default function IntroGate({ children }: { children: React.ReactNode }) {
     setDone(true);
   };
 
-  if (!isMounted) return null;
+  // Prevent white flash on initial mount by rendering a dark-aware skeleton
+  if (!isMounted) {
+    return <div className="fixed inset-0 bg-white dark:bg-black transition-colors duration-300" />;
+  }
 
   return (
     <>

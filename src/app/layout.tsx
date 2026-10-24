@@ -14,6 +14,10 @@ export const metadata: Metadata = {
     default: `${site.name} — ${site.tagline}`,
     template: `%s · ${site.name}`,
   },
+    themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
   description:
     "Nx Conglo is an independent studio building web apps and digital services in public.",
   applicationName: site.name,
@@ -40,7 +44,27 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning className="bg-white">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (isDark) {
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.style.backgroundColor = '#000000';
+                  document.body.style.backgroundColor = '#000000';
+                } else {
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.style.backgroundColor = '#ffffff';
+                  document.body.style.backgroundColor = '#ffffff';
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
+      <body suppressHydrationWarning className="bg-white dark:bg-black text-slate-900 dark:text-white transition-colors duration-300">
         <IntroGate>
           <div className="flex min-h-screen flex-col">
             <ScrollHandler />

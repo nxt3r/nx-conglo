@@ -26,7 +26,7 @@ export default function IntroOverlay({ onDone }: IntroOverlayProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-700 ease-in-out ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-white dark:bg-black transition-colors duration-300 ${
         phase === "fading" ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
       aria-hidden="true"
@@ -36,7 +36,6 @@ export default function IntroOverlay({ onDone }: IntroOverlayProps) {
           phase === "fading" ? "opacity-0" : "opacity-100"
         }`}
       >
-        {/* LEFT SIDE */}
         <div className="nx-part-left absolute inset-0">
           <Image
             src={`${BASE}/brand/nx-left.png`}
@@ -44,11 +43,10 @@ export default function IntroOverlay({ onDone }: IntroOverlayProps) {
             width={500}
             height={260}
             priority
-            className="w-full h-full object-contain select-none"
+            className="w-full h-full object-contain select-none dark:invert"
           />
         </div>
 
-        {/* RIGHT SIDE */}
         <div className="nx-part-right absolute inset-0">
           <Image
             src={`${BASE}/brand/nx-right.png`}
@@ -56,7 +54,7 @@ export default function IntroOverlay({ onDone }: IntroOverlayProps) {
             width={500}
             height={260}
             priority
-            className="w-full h-full object-contain select-none"
+            className="w-full h-full object-contain select-none dark:invert"
           />
         </div>
       </div>

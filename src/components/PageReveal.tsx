@@ -10,7 +10,6 @@ export default function PageReveal({ children }: PageRevealProps) {
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
-    // If they already saw the intro this session, reveal immediately
     if (sessionStorage.getItem("nx-intro-seen")) {
       setRevealed(true);
       return;
@@ -23,7 +22,7 @@ export default function PageReveal({ children }: PageRevealProps) {
 
   return (
     <div
-      className={`transition-all duration-700 ease-out ${
+      className={`min-h-screen bg-white dark:bg-black transition-all duration-700 ease-out ${
         revealed ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
       }`}
     >
