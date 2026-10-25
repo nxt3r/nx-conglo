@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import AnchorLink from "@/components/AnchorLink";
 import BrandMark from "@/components/BrandMark";
 import { contactInfo } from "@/data/site";
@@ -9,8 +10,16 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
+    // Only observe sections on the homepage
+    if (!isHome) {
+      setActiveSection("");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -26,7 +35,7 @@ export default function Navbar() {
     sections.forEach((section) => observer.observe(section));
 
     return () => sections.forEach((section) => observer.unobserve(section));
-  }, []);
+  }, [isHome]);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-zinc-800 bg-white/80 dark:bg-black/80 backdrop-blur-md transition-colors duration-300">

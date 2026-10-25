@@ -40,6 +40,17 @@ export default function ContentRenderer({
                 } transition-colors duration-300`}
               >
                 {block.text}
+                {block.link && (
+                  <>
+                    {" "}
+                    <a
+                      href={block.link.url}
+                      className="text-slate-900 dark:text-white underline underline-offset-4 transition-colors duration-300 hover:opacity-80"
+                    >
+                      {block.link.label}
+                    </a>
+                  </>
+                )}
               </p>
             );
 
@@ -78,11 +89,35 @@ export default function ContentRenderer({
               );
             }
 
+            // Default (non-sidebar) list. If `emphasis` is true, split on
+            // "**Title.** rest" convention and bold the title portion.
             return (
-              <ul key={i} className="mb-6 list-disc space-y-3 pl-6 text-lg leading-relaxed">
-                {block.items.map((item, j) => (
-                  <li key={j}>{item}</li>
-                ))}
+              <ul
+                key={i}
+                className={`mb-6 list-disc space-y-3 pl-6 text-lg leading-relaxed ${
+                  block.emphasis ? "list-none pl-0" : ""
+                }`}
+              >
+                {block.items.map((item, j) => {
+                  if (block.emphasis) {
+                    const match = item.match(/^\*\*(.+?)\*\*\s*(.*)$/);
+                    if (match) {
+                      const [, title, rest] = match;
+                      return (
+                        <li key={j} className="flex gap-3">
+                          <span className="mt-1 text-slate-400 dark:text-zinc-600" aria-hidden>
+                            →
+                          </span>
+                          <span>
+                            <strong className="text-slate-900 dark:text-white">{title}</strong>{" "}
+                            {rest}
+                          </span>
+                        </li>
+                      );
+                    }
+                  }
+                  return <li key={j}>{item}</li>;
+                })}
               </ul>
             );
 

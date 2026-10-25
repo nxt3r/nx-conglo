@@ -101,12 +101,14 @@ export default function Footer() {
           <div className="flex items-center w-full md:w-auto justify-between md:justify-end gap-6">
             
             <div className="flex items-center gap-4 text-sm">
+              <Link href="/blog" prefetch={false} className="hover:text-white transition-colors">
+                Blog
+              </Link>
+              <span className="text-gray-600">|</span>
               <Link href="/careers" prefetch={false} className="hover:text-white transition-colors">
                 Careers
               </Link>
               <span className="text-gray-600">|</span>
-              <Link href="/manifesto" prefetch={false} className="hover:text-white transition-colors">
-              </Link>
               <Link href="/manifesto" prefetch={false} className="hover:text-white transition-colors">
                 Manifesto
               </Link>

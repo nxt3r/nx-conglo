@@ -1,21 +1,32 @@
+"use client";
+
+import { useEffect } from "react";
 import { ventures } from "@/data/ventures";
 import { site } from "@/data/site";
 import VentureCard from "@/components/VentureCard";
 import BrandMark from "@/components/BrandMark";
 import ContentRenderer from "@/components/ContentRenderer";
-import type { Metadata } from "next";
 import BentoGrid from "@/components/BentoGrid";
+import HashScrollOnMount from "@/components/HashScrollOnMount";
 
-export const metadata: Metadata = {
-  title: { absolute: `${site.name} — ${site.tagline}` },
-  description:
-    "Nx Conglo is an independent studio building web apps and digital services in public. Currently shipping three live ventures.",
-  alternates: { canonical: "/" },
-};
 
 export default function Home() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const hash = window.location.hash;
+    if (!hash) return;
+    
+    const id = window.setTimeout(() => {
+      const el = document.querySelector(hash);
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+
+    return () => window.clearTimeout(id);
+  }, []);
+
   return (
     <div className="bg-white dark:bg-black transition-colors duration-300">
+      <HashScrollOnMount />
       
       {/* Hero */}
       <section className="mx-auto w-full max-w-6xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24 flex flex-col items-start text-left">

@@ -2,6 +2,8 @@
 
 @variant dark (&:where(.dark, .dark *));
 
+@plugin "@tailwindcss/typography";
+
 html {
   background-color: #ffffff;
 }

@@ -5,9 +5,17 @@ import { nportx } from "./nportx";
 export type VentureStatus = "live" | "coming-soon";
 
 export type ContentBlock = 
-  | { type: "paragraph"; text: string }
+  | { 
+      type: "paragraph"; 
+      text: string; 
+      link?: { label: string; url: string }; 
+    }
   | { type: "heading"; text: string }
-  | { type: "list"; items: string[] }
+  | { 
+      type: "list"; 
+      items: string[]; 
+      emphasis?: boolean; 
+    }
   | { type: "link"; text: string; url: string };
 
 export type Venture = {
