@@ -1,17 +1,20 @@
 import { ImageResponse } from "next/og";
 import { getVenture, ventures } from "@/data/ventures";
+import fs from "fs";
+import path from "path";
 
 export const alt = "Nx Conglo Venture";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// This forces Next.js to generate a static image for every venture ID during build
 export function generateStaticParams() {
   return ventures.map((v) => ({ id: v.id }));
 }
 
-export default async function Image({ params }: { params: { id: string } }) {
-  const venture = getVenture(params.id);
+export default async function Image({ params }: { params: Promise<{ id: string }> }) {
+
+  const { id } = await params;
+  const venture = getVenture(id);
 
   if (!venture) {
     return new ImageResponse(
@@ -22,8 +25,9 @@ export default async function Image({ params }: { params: { id: string } }) {
     );
   }
 
-  // Base URL for fetching the logo/image. You need the absolute URL for ImageResponse.
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nxt3r.github.io/nx-conglo";
+  const logoPath = path.join(process.cwd(), "public/brand/nx-mark.png");
+  const logoBuffer = fs.readFileSync(logoPath);
+  const logoBase64 = `data:image/png;base64,${logoBuffer.toString("base64")}`;
 
   return new ImageResponse(
     (
@@ -35,19 +39,18 @@ export default async function Image({ params }: { params: { id: string } }) {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          backgroundColor: "#09090b", // zinc-950 (matches your dark mode)
+          backgroundColor: "#09090b",
           padding: "80px",
           fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "20px", marginBottom: "40px" }}>
-          {/* Nx Logo */}
           <img 
-            src={`${baseUrl}/brand/nx-mark.png`} 
+            src={logoBase64} 
             alt="Nx Logo" 
             width="60" 
             height="60" 
-            style={{ filter: "invert(1)" }} // Makes the black logo white
+            style={{ filter: "invert(1)" }} 
           />
           <span style={{ color: "#a1a1aa", fontSize: "30px", fontWeight: "bold", letterSpacing: "0.1em", textTransform: "uppercase" }}>
             Nx Conglo
