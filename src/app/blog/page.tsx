@@ -30,7 +30,7 @@ export default function BlogIndexPage() {
           ← Back to Nx Conglo
         </Link>
 
-        <header className="mb-16">
+        <header className="mb-12 border-b border-gray-200 dark:border-zinc-800 pb-8">
           <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-zinc-500">
             INSIGHTS & PERSPECTIVES
           </p>
@@ -47,12 +47,12 @@ export default function BlogIndexPage() {
             Nothing published yet. Check back soon.
           </p>
         ) : (
-          <ul className="divide-y divide-gray-200 dark:divide-zinc-800">
+          <ul className="space-y-4">
             {posts.map((post) => (
               <li key={post.slug}>
                 <Link
                   href={`/blog/${post.slug}`} // Changed route
-                  className="group block py-8 transition-opacity hover:opacity-70"
+                  className="group block rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 sm:p-8 transition-all hover:border-gray-300 dark:hover:border-zinc-700 hover:shadow-sm"
                 >
                   <div className="mb-2 flex items-center gap-3 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-zinc-500">
                     <time dateTime={post.date}>{formatDate(post.date)}</time>

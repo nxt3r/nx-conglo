@@ -18,8 +18,7 @@ export default function BrandMark({ size = 28, className = "" }: Props) {
       width={width}
       height={size}
       priority
-      // Automatically inverts black to white in dark mode!
-      className={`dark:invert transition-all duration-300 ${className}`}
+      className={`dark:invert transition-opacity duration-300 opacity-100 dark:opacity-90 ${className}`}
     />
   );
 }

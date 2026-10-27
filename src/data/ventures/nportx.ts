@@ -42,7 +42,7 @@ content:
   },
   {
     type: "paragraph",
-    text: "The released v0.3.0 binary is approximately 1320 KB. The small footprint is a practical design choice, not a claim that size alone makes a tool better. The important part is that developers can access the functionality without taking on an unnecessary setup burden."
+    text: "The current binary is approximately 1.5 MB. The small footprint is a practical design choice, not a claim that size alone makes a tool better. The important part is that developers can access the functionality without taking on an unnecessary setup burden."
   },
   {
     type: "heading",
@@ -50,23 +50,26 @@ content:
   },
   {
     type: "paragraph",
-    text: "NportX provides a set of commands for inspecting and managing listening TCP ports, alongside an interactive terminal interface:"
+    text: "NportX provides commands for inspecting and managing listening ports, checking availability, exporting information, and detecting expected project ports, alongside an interactive terminal interface:"
   },
   {
     type: "list",
     items: [
-      "list — displays listening TCP ports alongside the associated process name, process ID (PID), and memory information, with color distinctions for system and user processes. Docker-backed ports display the actual container name.",
+      "list — displays listening ports alongside process names, process IDs (PIDs), and memory information. Use --udp to include UDP sockets, and identify Docker-backed ports by their actual container name.",
       "who <port> — identifies the process and PID associated with a specified port.",
-      "kill <port> — attempts to terminate the process occupying a port, after asking for confirmation. The -f or --force option skips the confirmation prompt for automated workflows.",
+      "kill <port> — attempts to terminate the process occupying a port, after asking for confirmation. The -f or --force option skips confirmation for automated workflows.",
+      "kill --name <name> — finds listening-port processes matching a process name and asks for confirmation before terminating the matches.",
       "check <port> — checks whether a port is free and returns an exit code that scripts can use: 0 when free and 1 when occupied.",
+      "free <port> — finds the next available port starting from the specified port number.",
+      "export json and export csv — outputs port information in structured formats for logging, reporting, or use in other tools.",
       "watch — provides an interactive, live view of listening ports, with keyboard navigation, search, manual refresh, and process termination. The refresh interval is configurable through the -i option.",
-      "doctor — inspects project files such as .env and package.json to identify expected ports and cross-check them against ports currently in use.",
+      "doctor — inspects project files such as .env, package.json, and docker-compose.yml to identify expected ports and cross-check them against ports currently in use.",
       "completions — generates shell completion scripts for Bash, Zsh, Fish, and PowerShell."
     ]
   },
   {
     type: "paragraph",
-    text: "Together, these commands cover the core workflow: inspect the current situation, identify what is occupying a port, check availability before starting a service, monitor changes, and terminate a conflicting process when appropriate. Project-aware detection adds context by comparing expected ports with actual listeners, while shell completions make commands easier to enter. The check command also makes NportX useful beyond interactive terminal sessions, where a simple exit code can be incorporated into shell scripts."
+    text: "Together, these commands cover the core workflow: inspect the current situation, identify what is occupying a port, check availability before starting a service, find a free port, monitor changes, export information, and terminate a conflicting process when appropriate. Project-aware detection adds context by comparing expected ports with actual listeners, while Docker Compose awareness helps identify host ports used by multi-container applications. Shell completions make commands easier to enter, and predictable exit codes and structured output make NportX useful in scripts as well as interactive terminal sessions."
   },
   {
     type: "heading",
@@ -78,11 +81,11 @@ content:
   },
   {
     type: "paragraph",
-    text: "NportX filters out sockets that are not in the listening state and deduplicates ports that may otherwise appear multiple times because of interface-specific socket entries. It also skips unusable process entries, distinguishes system and user processes, and recognizes Docker-backed ports so developers can identify the container behind a port instead of seeing only an intermediary process."
+    text: "NportX focuses on relevant listening-port information, distinguishes system and user processes in its output, and recognizes Docker-backed ports so developers can identify the container behind a port instead of seeing only an intermediary process. Its optional UDP view extends inspection beyond TCP when a workflow requires it."
   },
   {
     type: "paragraph",
-    text: "The kill command requires explicit confirmation before proceeding by default. The optional force flag allows the prompt to be skipped when automation requires it. In addition, a critical-process guard blocks attempts to terminate protected processes, including processes such as System, lsass.exe, and csrss.exe. These protections are intended to make the command more deliberate and reduce the risk of an avoidable mistake."
+    text: "The kill commands require explicit confirmation by default. The optional force flag allows the prompt to be skipped when automation requires it. A critical-process guard blocks attempts to terminate protected processes, including processes such as System, lsass.exe, and csrss.exe. These protections are intended to make the command more deliberate and reduce the risk of an avoidable mistake."
   },
   {
     type: "paragraph",
@@ -110,15 +113,15 @@ content:
   },
   {
     type: "paragraph",
-    text: "NportX v0.3.0 has been published through GitHub Releases, Crates.io, Homebrew and Scoop. A one-line installation script is also available for macOS and Linux. The dedicated Scoop bucket provides a convenient installation route for Windows users, while Homebrew supports macOS installation."
+    text: "NportX v0.4.0 is available through GitHub Releases, Crates.io, Homebrew, and Scoop. A one-line installation script is also available for macOS and Linux. The dedicated Scoop bucket provides a convenient installation route for Windows users, while Homebrew supports macOS installation."
   },
   {
     type: "paragraph",
-    text: "NportX now supports Windows, macOS, and Linux through prebuilt releases, with Intel and ARM architectures supported where available. The project has expanded beyond its original Windows implementation while retaining its focus on a lightweight executable and a consistent command interface."
+    text: "NportX supports Windows, macOS, and Linux through prebuilt releases, with Intel and ARM architectures supported where available. The project has expanded beyond its original Windows implementation while retaining its focus on a lightweight executable and a consistent command interface."
   },
   {
     type: "paragraph",
-    text: "The project is continuing beyond its initial release. The next stage is about extending the existing foundation carefully: improving project awareness, expanding integrations, and adding capabilities where they meaningfully reduce friction for developers."
+    text: "The project continues beyond each release. The latest version expands the original port-management workflow with UDP inspection, structured JSON and CSV exports, free-port discovery, process-name-based termination, and deeper project awareness through Docker Compose detection."
   },
   {
     type: "heading",
@@ -126,19 +129,17 @@ content:
   },
   {
     type: "paragraph",
-    text: "The roadmap focuses on extending NportX's existing port-management workflow with better project awareness, additional output options, and broader system integration."
+    text: "The next stage is about extending the existing foundation carefully: making port-dependent workflows easier to automate, improving visibility into port usage, and expanding integrations where they meaningfully reduce friction for developers."
   },
   {
     type: "list",
     items: [
-      "Expanded project detection — extend nportx doctor to inspect docker-compose.yml files and identify expected ports across multi-container applications.",
-      "Process-wide termination — introduce nportx kill --all to terminate listening-port processes matching a specified process name.",
-      "Structured exports — add nportx export for outputting port information as JSON or CSV for dashboards, reporting, and logging.",
-      "Free-port discovery — introduce a command to find an available port starting from a specified number.",
-      "UDP support — extend port inspection beyond TCP sockets with an optional --udp flag.",
+      "nportx wait <port> — wait until a port becomes free, useful for scripts that need to wait before starting another process.",
+      "nportx stats — provide a live dashboard for port and process information.",
       "Native Linux packages — explore apt and dnf distribution for Debian/Ubuntu and Fedora.",
       "Windows package distribution — pursue availability through the official Windows Package Manager using winget.",
-      "VS Code integration — explore an extension that uses nportx doctor in the background and warns about port conflicts before development servers start."
+      "VS Code integration — explore an extension that uses nportx doctor in the background and warns about port conflicts before development servers start.",
+      "Interactive process selection — explore a guided way to choose which matching processes to terminate."
     ]
   },
   {
@@ -155,7 +156,7 @@ content:
   },
   {
     type: "paragraph",
-    text: "By bringing port inspection, process identification, availability checks, monitoring, project-aware detection, and guarded termination into one lightweight CLI, NportX aims to remove one of those interruptions. Its interactive terminal interface makes the same workflow easier to navigate, while Docker awareness helps developers understand port conflicts in containerized environments."
+    text: "By bringing port inspection, process identification, availability checks, monitoring, project-aware detection, structured exports, UDP support, free-port discovery, and guarded termination into one lightweight CLI, NportX aims to remove one of those interruptions. Its interactive terminal interface makes the workflow easier to navigate, while Docker awareness helps developers understand port conflicts in containerized environments."
   },
   {
     type: "paragraph",

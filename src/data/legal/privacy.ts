@@ -31,8 +31,11 @@ content: [
   { type: "heading", text: "4. Contact Us" },
   {
     type: "paragraph",
-    text: "If you have any questions about this Privacy Policy or how information is handled in connection with the Nx Conglo website, please contact us at",
-    link: { label: contactInfo.email, url: `mailto:${contactInfo.email}` },
+    text: "If you have any questions about this Privacy Policy, please contact us at",
+    link: { 
+    label: contactInfo.email, 
+    url: `mailto:${contactInfo.email}?subject=Privacy Policy Inquiry — Nx Conglo` 
+    },
   },
 ] satisfies ContentBlock[],
 };

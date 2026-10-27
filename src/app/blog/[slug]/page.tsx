@@ -51,6 +51,15 @@ export default async function BlogPostPage({
     <main className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
       <article className="mx-auto max-w-2xl px-8 py-24 md:py-32">
 
+              {/* Top Sub-back button */}
+        <Link
+          href="/blog"
+          prefetch={false}
+          className="mb-10 inline-flex items-center text-sm text-gray-500 dark:text-zinc-500 hover:text-gray-900 dark:hover:text-white transition-colors"
+        >
+          ← Back to all posts
+        </Link>
+
         <header className="mb-12">
           <div className="mb-3 flex items-center gap-3 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-zinc-500">
             <time dateTime={post.date}>{formatDate(post.date)}</time>
@@ -92,7 +101,7 @@ export default async function BlogPostPage({
 
         <footer className="mt-16 border-t border-gray-200 dark:border-zinc-800 pt-8">
           <Link
-            href="/blog" // Changed route
+            href="/blog" 
             prefetch={false}
             className="inline-flex items-center text-sm text-gray-500 dark:text-zinc-500 hover:text-gray-900 dark:hover:text-white transition-colors"
           >

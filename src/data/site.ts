@@ -7,7 +7,7 @@ export const site = {
   stats: {
     ventures: 3, 
     countries: 1,
-    comingSoon: 0,
+    comingSoon: 1,
   },
   
   //Rich content for the About section
@@ -99,7 +99,7 @@ export const contactInfo = {
 
 export const socialLinks = [
   {
-    name: "GitHub (NxT3R)",
+    name: "GitHub",
     url: "https://github.com/nxt3r",
     icon: "github",
   },

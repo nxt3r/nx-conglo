@@ -1,6 +1,6 @@
 ---
 title: "Why good ideas need more than funding"
-date: "2026-10-26"
+date: "2026-10-27"
 excerpt: "Capital can help an idea move forward, but it cannot replace the people, judgment, and execution needed to build something real."
 tags: ["ventures", "entrepreneurship"]
 published: true

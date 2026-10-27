@@ -26,4 +26,5 @@ npm run build
 
 ## License
 
-© Nx Conglo. All rights reserved.
+Copyright © 2026 Nx Conglo. All rights reserved.
+[Nx Conglo Website License v1.0](./LICENSE)

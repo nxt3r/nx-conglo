@@ -1,4 +1,5 @@
 import type { ContentBlock } from "@/data/ventures";
+import { contactInfo } from "@/data/site";
 
 export const terms = {
   title: "Terms of Service",
@@ -45,7 +46,11 @@ content: [
   { type: "heading", text: "7. Contact Us" },
   {
     type: "paragraph",
-    text: "If you have questions about these Terms of Service, please contact Nx Conglo through the contact information provided on our website.",
+    text: "If you have questions about these Terms of Service, please contact us at",
+    link: { 
+    label: contactInfo.email, 
+    url: `mailto:${contactInfo.email}?subject=Terms of Service Inquiry — Nx Conglo` 
+    },
   },
 ]satisfies ContentBlock[],
 };
