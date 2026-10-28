@@ -108,6 +108,11 @@ export const socialLinks = [
     url: "https://www.instagram.com/nxconglo/",
     icon: "instagram",
   },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/profile.php?id=61595614577776",
+    icon: "facebook",
+  },
   // Foundation for the future 
   // {
   //   name: "Twitter",

@@ -122,6 +122,24 @@ export default function CommandMenu() {
                   >
                     Copy Contact Email
                   </Command.Item>
+                  <Command.Item
+                    onSelect={() => runCommand(() => window.location.href = "https://github.com/nxt3r")}
+                    className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 text-sm text-slate-700 dark:text-slate-300 aria-selected:bg-slate-100 dark:aria-selected:bg-zinc-800 aria-selected:text-slate-900 dark:aria-selected:text-white"
+                  >
+                    Open GitHub Profile
+                  </Command.Item>
+                                    <Command.Item
+                    onSelect={() => runCommand(() => window.location.href = "https://www.instagram.com/nxconglo/")}
+                    className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 text-sm text-slate-700 dark:text-slate-300 aria-selected:bg-slate-100 dark:aria-selected:bg-zinc-800 aria-selected:text-slate-900 dark:aria-selected:text-white"
+                  >
+                    Open Instagram Page 
+                  </Command.Item>
+                                    <Command.Item
+                    onSelect={() => runCommand(() => window.location.href = "https://www.facebook.com/profile.php?id=61595614577776")}
+                    className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 text-sm text-slate-700 dark:text-slate-300 aria-selected:bg-slate-100 dark:aria-selected:bg-zinc-800 aria-selected:text-slate-900 dark:aria-selected:text-white"
+                  >
+                    Open Facebook Page 
+                  </Command.Item>
                 </Command.Group>
               </Command.List>
             </Command>
