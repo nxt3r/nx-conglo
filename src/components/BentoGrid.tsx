@@ -141,7 +141,7 @@ export default function BentoGrid() {
               Current Focus
             </h3>
             <p className="text-2xl font-bold text-slate-900 dark:text-white">
-              Scaling the portfolio.
+              NxM Dev
             </p>
           </div>
           

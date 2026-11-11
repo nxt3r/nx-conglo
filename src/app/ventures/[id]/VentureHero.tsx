@@ -33,7 +33,9 @@ export function VentureHero({ venture, basePath }: { venture: Venture; basePath:
           {statusLabels[venture.status]}
         </span>
         <span className="text-sm text-slate-500 dark:text-slate-400 transition-colors">
-          Launched {venture.year}
+          {venture.status === "live" 
+            ? `Launched ${venture.year}` 
+            : "Yet to be launched"}
         </span>
       </div>
 

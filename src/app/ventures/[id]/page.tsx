@@ -98,8 +98,8 @@ export default async function VenturePage({
           ))}
         </div>
 
-        {venture.url && (
-          <div className="mt-12 border-t border-slate-200 dark:border-zinc-800 pt-8 transition-colors duration-300">
+        <div className="mt-12 border-t border-slate-200 dark:border-zinc-800 pt-8 transition-colors duration-300">
+          {venture.status === "live" && venture.url ? (
             <a
               href={venture.url}
               target="_blank"
@@ -109,8 +109,19 @@ export default async function VenturePage({
               Visit {venture.name}
               <span aria-hidden>↗</span>
             </a>
-          </div>
-        )}
+          ) : venture.status === "coming-soon" ? (
+            <button
+              disabled
+              className="inline-flex items-center gap-2 rounded-xl bg-slate-100 px-6 py-3 text-base font-semibold text-slate-400 dark:bg-zinc-900 dark:text-zinc-600 cursor-not-allowed transition-colors duration-300"
+            >
+              Launching Soon
+            </button>
+          ) : (
+            <span className="text-sm text-slate-500 dark:text-slate-400">
+              No link available yet.
+            </span>
+          )}
+        </div>
       </section>
     </div>
   );

@@ -7,7 +7,7 @@ export const site = {
   stats: {
     ventures: 3, 
     countries: 1,
-    comingSoon: 1,
+    comingSoon: 2,
   },
   
   //Rich content for the About section
@@ -15,11 +15,11 @@ export const site = {
   about: ([
   {
     type: "paragraph",
-    text: "Nx Conglo (NxC) is a conglomerate built around a simple principle: meaningful ideas deserve the opportunity to become something real. We create and develop ventures across different fields, bringing distinct ideas under one organization without limiting what those ideas can be or where they can lead."
+    text: "Nx Conglo is a conglomerate built around a simple principle: meaningful ideas deserve the opportunity to become something real. We create and develop ventures across different fields, bringing distinct ideas under one organization without limiting what those ideas can be or where they can lead."
   },
   {
     type: "paragraph",
-    text: "NxC is the organization behind the ventures, not a single product with a fixed audience or purpose. Each venture has its own identity, direction, and reason to exist. They share a common foundation, but they are not required to look alike, serve the same market, or follow the same path. The connection is in the standards we hold ourselves to, not in forcing every idea into the same shape."
+    text: "Nx Conglo is the organization behind the ventures, not a single product with a fixed audience or purpose. Each venture has its own identity, direction, and reason to exist. They share a common foundation, but they are not required to look alike, serve the same market, or follow the same path. The connection is in the standards we hold ourselves to, not in forcing every idea into the same shape."
   },
   {
     type: "heading",
@@ -27,11 +27,11 @@ export const site = {
   },
   {
     type: "paragraph",
-    text: "We don't believe worthwhile opportunities have to fit neatly into one industry. Technology, software, services, or something entirely different — NxC is built to explore ideas wherever there is a genuine problem to solve and a meaningful way to contribute. Our direction can evolve, our scope can expand, and our ventures can take forms that have little in common with one another."
+    text: "We don't believe worthwhile opportunities have to fit neatly into one industry. Technology, software, services, or something entirely different — Nx Conglo is built to explore ideas wherever there is a genuine problem to solve and a meaningful way to contribute. Our direction can evolve, our scope can expand, and our ventures can take forms that have little in common with one another."
   },
   {
     type: "paragraph",
-    text: "That flexibility is intentional. We want NxC to grow beyond a narrow category without losing the sense of purpose that makes a venture worth building. Expansion, for its own sake, isn't the point. The point is to recognize opportunities, develop them with care, and create things that genuinely matter to the people they serve."
+    text: "That flexibility is intentional. We want Nx Conglo to grow beyond a narrow category without losing the sense of purpose that makes a venture worth building. Expansion, for its own sake, isn't the point. The point is to recognize opportunities, develop them with care, and create things that genuinely matter to the people they serve."
   },
   {
     type: "heading",
@@ -56,11 +56,11 @@ export const site = {
   },
   {
     type: "paragraph",
-    text: "Not every venture needs the same scale, audience, resources, or definition of success. A small, focused tool can be just as meaningful as a much larger undertaking when both serve their purpose well. At NxC, we don't measure a venture's worth solely by its size, visibility, or commercial potential. We care about what it contributes and whether it genuinely helps the people it was created for."
+    text: "Not every venture needs the same scale, audience, resources, or definition of success. A small, focused tool can be just as meaningful as a much larger undertaking when both serve their purpose well. At Nx Conglo, we don't measure a venture's worth solely by its size, visibility, or commercial potential. We care about what it contributes and whether it genuinely helps the people it was created for."
   },
   {
     type: "paragraph",
-    text: "This also means giving each venture room to develop its own identity. NxC provides the broader organizational foundation, while each venture is free to establish its own character, priorities, and relationship with its audience. Unity at the organizational level should create room for individuality, not erase it."
+    text: "This also means giving each venture room to develop its own identity. Nx Conglo provides the broader organizational foundation, while each venture is free to establish its own character, priorities, and relationship with its audience. Unity at the organizational level should create room for individuality, not erase it."
   },
   {
     type: "heading",
@@ -84,11 +84,11 @@ export const site = {
   },
   {
     type: "paragraph",
-    text: "We don't see the current scope of NxC as a final definition. New fields may bring new challenges, new kinds of work, and entirely different ways of creating value. As the organization grows, its structure can evolve with it. What should remain constant is the commitment to building with purpose, treating every venture with respect, and making the result worthwhile for the people it serves."
+    text: "We don't see the current scope of Nx Conglo as a final definition. New fields may bring new challenges, new kinds of work, and entirely different ways of creating value. As the organization grows, its structure can evolve with it. What should remain constant is the commitment to building with purpose, treating every venture with respect, and making the result worthwhile for the people it serves."
   },
   {
     type: "paragraph",
-    text: "NxC is a continuing effort to turn worthwhile ideas into real ventures — independently minded, deliberately built, and open to wherever meaningful work may lead."
+    text: "Nx Conglo is a continuing effort to turn worthwhile ideas into real ventures — independently minded, deliberately built, and open to wherever meaningful work may lead."
   }
 ] as ContentBlock[]),
 }

@@ -2,6 +2,7 @@ import { careerOs } from "./career-os";
 import { fixtional } from "./fixtional";
 import { nportx } from "./nportx";
 import { scrunkzunk } from "./scrunkzunk";
+import { nxmDev } from "./nxm-dev";
 
 export type VentureStatus = "live" | "coming-soon";
 
@@ -35,7 +36,7 @@ export type Venture = {
 };
 
 // The master array used by the Homepage and Sitemap
-export const ventures: Venture[] = [careerOs, fixtional, nportx, scrunkzunk];
+export const ventures: Venture[] = [careerOs, fixtional, nportx, scrunkzunk, nxmDev];
 
 // Helper for the [id] route
 export function getVenture(id: string): Venture | undefined {

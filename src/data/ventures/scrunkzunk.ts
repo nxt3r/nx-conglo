@@ -7,7 +7,7 @@ export const scrunkzunk: Venture = {
   description: "",
   logo: "/logos/scrunkzunk.png",
   status: "coming-soon",
-  url: "https://github.com/nxt3r/scrunkzunk",
+  url: "",
   tags: ["Cleaner"],
   year: 2026,
   content: 
